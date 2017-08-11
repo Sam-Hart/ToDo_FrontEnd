@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
                 .get('session')
                 .invalidate()
                 .then(() => {
-                    this.store.unloadAll('todo');
+                    this.store.unloadAll();
                     this.transitionToRoute('login');
                 });
         }

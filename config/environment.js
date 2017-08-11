@@ -3,10 +3,16 @@
 
 module.exports = function(environment) {
   let ENV = {
+    host: 'http://somehost.com',
     modulePrefix: 'to-do-ember',
     environment,
     rootURL: '/',
     locationType: 'auto',
+    'ember-simple-auth': {
+      authenticationRoute: 'login',
+      routeAfterAuthentication: 'todos',
+      routeIfAlreadyAuthenticated: 'todos'
+    },
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -25,6 +31,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.host = 'http://localhost:8000';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;

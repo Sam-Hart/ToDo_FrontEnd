@@ -14,6 +14,9 @@ export default Ember.Controller.extend({
                     username,
                     password
                 )
+                .then(() => {
+                    this.transitionToRoute('todos');
+                })
                 .catch((reason) => {
                     this.set('error', reason);
                 });

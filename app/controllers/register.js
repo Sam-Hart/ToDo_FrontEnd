@@ -27,6 +27,7 @@ export default Ember.Controller.extend({
             .then(
                 (response) => {
                     this.set('signupComplete', true);
+                    this.transitionToRoute('login');
                 },
                 (xhr, status, error) => {
                     this.set('error', xhr.responseText);

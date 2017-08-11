@@ -5,7 +5,13 @@ export default Ember.Controller.extend({
 
     actions: {
         invalidateSession() {
-            this.get('session').invalidate();
+            this
+                .get('session')
+                .invalidate()
+                .then(() => {
+                    this.store.unloadAll('todo');
+                    this.transitionToRoute('login');
+                });
         }
     }
 });

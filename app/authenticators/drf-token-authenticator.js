@@ -3,6 +3,7 @@ import Base from 'ember-simple-auth/authenticators/base';
 import ENV from 'to-do-ember/config/environment';
 
 export default Base.extend({
+
     restore(data) {
         return new Ember.RSVP.Promise(
             (resolve, reject) => {
